@@ -8,6 +8,7 @@
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.unicep.app.dogs.view.DetailsFragment"
+        tools:layout="@layout/fragment_details"
         android:label="DetailsFragment" >
         <action
             android:id="@+id/goto_list_fragment"
@@ -15,6 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/listFragment"
+        tools:layout="@layout/fragment_list"
         android:name="com.unicep.app.dogs.view.ListFragment"
         android:label="ListFragment" >
         <action
