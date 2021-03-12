@@ -28,6 +28,9 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // TODO: continuar daqui
+        // 1. adicionar o Binding para a view
+        // 2. adicionar o evento de navegação para os botões
+        super.onCreateView(inflater, container, savedInstanceState)
         return inflater.inflate(R.layout.fragment_list, container, false)
     }
 
