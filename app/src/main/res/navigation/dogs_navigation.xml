@@ -6,21 +6,24 @@
     app:startDestination="@id/listFragment">
 
     <fragment
+        android:id="@+id/listFragment"
+        android:name="com.unicep.app.dogs.view.ListFragment"
+        android:label="ListFragment"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/actionDetailsFragment"
+            app:destination="@id/detailsFragment" />
+        <argument android:name="uuid" android:defaultValue="-1" app:argType="integer"/>
+    </fragment>
+
+    <fragment
         android:id="@+id/detailsFragment"
         android:name="com.unicep.app.dogs.view.DetailsFragment"
-        tools:layout="@layout/fragment_details"
-        android:label="DetailsFragment" >
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details" >
         <action
-            android:id="@+id/action_detailsFragment_to_listFragment"
+            android:id="@+id/actionListFragment"
             app:destination="@id/listFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/listFragment"
-        tools:layout="@layout/fragment_list"
-        android:name="com.unicep.app.dogs.view.ListFragment"
-        android:label="ListFragment" >
-        <action
-            android:id="@+id/action_listFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+        <argument android:name="message" app:argType="string" android:defaultValue="" />
     </fragment>
 </navigation>
