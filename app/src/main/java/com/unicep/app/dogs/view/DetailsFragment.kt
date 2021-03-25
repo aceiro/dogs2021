@@ -9,8 +9,10 @@ import androidx.navigation.Navigation
 import com.unicep.app.dogs.R
 import kotlinx.android.synthetic.main.fragment_details.*
 
-class DetailsFragment : Fragment() {
+class DetailsFragment : Fragment(), ISharedFragment {
 
+    private var message: String = ""
+    private val uuid: Int = 100
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,17 +23,25 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupParameters()
+        setupWidgets()
+        setupListeners()
+    }
 
-        arguments?.let {
-            val message = DetailsFragmentArgs.fromBundle(it).message
-            tvDetailsMessage.text = message
-
-        }
-
+    override fun setupListeners() {
         floatingActionDetailsButton.setOnClickListener {
-            val uuid = 100
             val action = DetailsFragmentDirections.actionListFragment(uuid)
             Navigation.findNavController(it).navigate(action)
+        }
+    }
+
+    override fun setupWidgets() {
+        tvDetailsMessage.text = message
+    }
+
+    override fun setupParameters() {
+        arguments?.let {
+            message = DetailsFragmentArgs.fromBundle(it).message
         }
     }
 

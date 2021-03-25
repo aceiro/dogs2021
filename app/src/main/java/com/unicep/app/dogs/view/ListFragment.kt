@@ -12,35 +12,40 @@ import com.unicep.app.dogs.R
 import kotlinx.android.synthetic.main.fragment_list.*
 
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(), ISharedFragment {
     private val _message = "Recebido o valor de número 100!"
+    private var uuid: Int = -1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-
         super.onCreateView(inflater, container, savedInstanceState)
         return inflater.inflate(R.layout.fragment_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupParameters()
+        setupWidgets()
+        setupListeners()
+    }
 
-        var uuid = -1
-        arguments?.let {
-            uuid = ListFragmentArgs.fromBundle(it).uuid
-            tvListMessage.text = getString(R.string.message_received, uuid)
-        }
-
-        if (uuid == 100) {
-            makeText(this.requireContext(), _message, LENGTH_SHORT).show()
-        }
-
+    override fun setupListeners() {
         btnList.setOnClickListener {
             val action = ListFragmentDirections.actionDetailsFragment(_message)
             Navigation.findNavController(it).navigate(action)
 
+        }
+    }
+
+    override fun setupWidgets() {
+        tvListMessage.text = getString(R.string.message_received, uuid)
+    }
+
+    override fun setupParameters() {
+        arguments?.let {
+            uuid = ListFragmentArgs.fromBundle(it).uuid
         }
     }
 }
