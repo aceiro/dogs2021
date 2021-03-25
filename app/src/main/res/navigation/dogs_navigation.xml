@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dogs_navigation"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.unicep.app.dogs.view.ListFragment"
+        android:label="ListFragment"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/actionDetailsFragment"
+            app:destination="@id/detailsFragment" />
+        <argument android:name="uuid" android:defaultValue="-1" app:argType="integer"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.unicep.app.dogs.view.DetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/actionListFragment"
+            app:destination="@id/listFragment" />
+        <argument android:name="message" app:argType="string" android:defaultValue="" />
+    </fragment>
+</navigation>

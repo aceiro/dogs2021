@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 
@@ -9,13 +11,15 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
+    dataBinding.enabled true
+
     defaultConfig {
         applicationId "com.unicep.app.dogs"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -69,6 +73,7 @@ dependencies {
 
     // sql
     implementation "androidx.room:room-runtime:$roomVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "androidx.room:room-compiler:$roomVersion"
 
     // navigation
