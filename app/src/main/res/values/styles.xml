@@ -4,6 +4,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
     </style>
     <style name="Title">
+        <item name="android:capitalize">sentences</item>
         <item name="android:text">18sp</item>
         <item name="android:textStyle">bold</item>
     </style>
