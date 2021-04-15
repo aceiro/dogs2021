@@ -5,13 +5,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast.LENGTH_SHORT
-import android.widget.Toast.makeText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.unicep.app.dogs.R
-import com.unicep.app.dogs.viewmodel.ListViewModel
+import com.unicep.app.dogs.controller.ListViewModel
 import kotlinx.android.synthetic.main.fragment_list.*
 
 
@@ -74,7 +72,6 @@ class ListFragment : Fragment(), ISharedFragment {
 
     override fun setupWidgets() {
         uuid = viewModel.makeRandomNumber()
-        tvListMessage.text = getString(R.string.message_received, uuid)
     }
 
     override fun setupParameters() {

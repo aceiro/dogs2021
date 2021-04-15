@@ -1,4 +1,4 @@
-package com.unicep.app.dogs.viewmodel
+package com.unicep.app.dogs.controller
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

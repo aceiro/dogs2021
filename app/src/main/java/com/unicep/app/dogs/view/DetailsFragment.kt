@@ -36,7 +36,7 @@ class DetailsFragment : Fragment(), ISharedFragment {
     }
 
     override fun setupWidgets() {
-        tvDetailsMessage.text = message
+
     }
 
     override fun setupParameters() {
