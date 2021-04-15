@@ -71,7 +71,7 @@ class ListFragment : Fragment(), ISharedFragment {
     }
 
     override fun setupWidgets() {
-        uuid = viewModel.makeRandomNumber()
+
     }
 
     override fun setupParameters() {
