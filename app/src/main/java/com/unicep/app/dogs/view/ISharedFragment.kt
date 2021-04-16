@@ -4,4 +4,5 @@ interface ISharedFragment {
     fun setupListeners()
     fun setupWidgets()
     fun setupParameters()
+    fun load()
 }

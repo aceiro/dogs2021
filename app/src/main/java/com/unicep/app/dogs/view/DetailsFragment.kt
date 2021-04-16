@@ -45,4 +45,8 @@ class DetailsFragment : Fragment(), ISharedFragment {
         }
     }
 
+    override fun load() {
+        /* do nothing */
+    }
+
 }
