@@ -76,7 +76,9 @@ class ListFragment : Fragment(), ISharedFragment {
         btnList.setOnClickListener {
             val action = ListFragmentDirections.actionDetailsFragment(_message)
             Navigation.findNavController(it).navigate(action)
-
+        }
+        binding.swipeRefresh.setOnRefreshListener {
+            binding.swipeRefresh.isRefreshing = false
         }
     }
 
