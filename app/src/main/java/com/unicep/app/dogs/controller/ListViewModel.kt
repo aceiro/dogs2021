@@ -32,4 +32,21 @@ class ListViewModel : ViewModel() {
         Log.d(_tag, "Called :: loadFakeDogs() $listOf")
         return listOf
     }
+
+    fun loadRandomDogs(): List<Dog> {
+        val maxRangeOfDogs = 1..100
+        val myListRandomDogs: ArrayList<Dog> = arrayListOf()
+        for(i in maxRangeOfDogs){
+            val aDog = makeDogAleatory()
+            myListRandomDogs.add(aDog)
+        }
+        return myListRandomDogs
+
+    }
+
+    private fun makeDogAleatory(): Dog {
+        val id = ((Math.random()%100)*100+1).toLong()
+        return Dog(name = "name random $id", details = "dog details $id", imageResId = -1)
+    }
+
 }

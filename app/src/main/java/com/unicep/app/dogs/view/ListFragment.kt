@@ -98,7 +98,13 @@ class ListFragment : Fragment(), ISharedFragment {
         Log.d(_tag, "Count of dogs # ${listOfDogs.size}")
         Log.d(_tag, "Showing dogs # $listOfDogs")
 
-        val adapter = ListDogsAdapter(listOfDogs)
+        // 2. Make test for random
+        val listOfRandomDogs = viewModel.loadRandomDogs()
+        Log.d(_tag, "Count of dogs # ${listOfRandomDogs.size}")
+        Log.d(_tag, "Showing dogs # $listOfRandomDogs")
+
+
+        val adapter = ListDogsAdapter(listOfRandomDogs)
         binding.rvListDogs.layoutManager = LinearLayoutManager(context)
         binding.rvListDogs.adapter = adapter
     }
