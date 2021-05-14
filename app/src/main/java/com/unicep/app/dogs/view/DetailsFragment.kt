@@ -36,13 +36,17 @@ class DetailsFragment : Fragment(), ISharedFragment {
     }
 
     override fun setupWidgets() {
-        tvDetailsMessage.text = message
+
     }
 
     override fun setupParameters() {
         arguments?.let {
             message = DetailsFragmentArgs.fromBundle(it).message
         }
+    }
+
+    override fun load() {
+        /* do nothing */
     }
 
 }
